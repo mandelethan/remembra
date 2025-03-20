@@ -4,98 +4,462 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Remembra</title>
-  <!-- Link to the external stylesheet -->
-  <link rel="stylesheet" href="styles.css">
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+  />
+  <script
+    src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    defer
+  ></script>
 </head>
-<body>
+<body class="bg-white font-sans">
 
-  <div class="container">
-
-    <!-- HERO SECTION -->
-    <section class="hero">
-      <div class="hero-text">
-        <h1>Meet Remembra</h1>
-        <p>
-          A unique platform to connect music to memories. 
-          Designed to bring comfort, connection, and a touch of the familiar, 
-          it’s music therapy reimagined.
+<!-- Landing Page -->
+<section
+  class="py-12 md:h-screen flex items-center justify-center"
+  style="background: linear-gradient(to bottom, #faaad6 0%, #ffffff 100%);"
+>
+  <div class="container mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+      <!-- Text Content -->
+      <div class="text-center md:text-left">
+        <h1 class="text-3xl md:text-5xl font-semibold mb-6">
+          Meet <span style="color: #b39cff;" class="font-bold">Remembra</span>
+        </h1>
+        <p class="text-base md:text-xl text-gray-600">
+          Leveraging music and technology to support memory, improve emotional well-being, 
+          and enhance quality of life.
         </p>
       </div>
-      <div class="hero-image">
-        <!-- Replace this placeholder with an actual app image or screenshot -->
+      
+      <!-- Image Content -->
+      <div class="flex justify-center">
         <img 
-          src="images/demo.gif" 
-          alt="Remembra App Screenshot"
-        />
+          src="images/demo.gif"
+          alt="App Screenshot"
+          class="w-full max-w-xs md:max-w-sm rounded-xl shadow-xl object-contain"
+        >
       </div>
-    </section>
-
-    <!-- USE CASES SECTION -->
-    <section class="use-cases">
-      <h2>Use Cases</h2>
-      <div class="use-case-grid">
-        <div class="use-case-item">
-          <h3>Alzheimer’s & Dementia Care</h3>
-          <p>
-            Remembra helps individuals with memory loss reconnect with cherished 
-            moments through personalized music therapy. 
-            Caregivers can use the app to create soothing, familiar soundscapes 
-            that reduce anxiety, improve mood, and enhance engagement.
-          </p>
-        </div>
-        <div class="use-case-item">
-          <h3>Concussion & Brain Injury Recovery</h3>
-          <p>
-            Music has been shown to aid cognitive function and emotional regulation 
-            after traumatic brain injuries. Remembra adapts to each user’s needs, 
-            providing calming or stimulating playlists that support mental recovery and focus.
-          </p>
-        </div>
-        <div class="use-case-item">
-          <h3>Wellness & Stress Relief</h3>
-          <p>
-            Beyond clinical care, Remembra serves as a tool for relaxation,
-            mindfulness, and emotional well-being. Whether managing daily 
-            stress or seeking comfort through familiar melodies, users can 
-            experience the therapeutic power of music anytime, anywhere.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- APP PREVIEW SECTION -->
-    <section class="app-preview">
-      <h2>App Preview</h2>
-      <p>
-        Take a quick look at some sample screens of the Remembra app in action.
-      </p>
-      <div class="preview-images">
-        <!-- Replace placeholders with your actual screenshots -->
-        <img 
-          src="images/image1.PNG" 
-          alt="App Preview 1" 
-        />
-        <img 
-          src="images/advanced.gif" 
-          alt="App Preview 2" 
-        />
-        <img 
-          src="images/image3.PNG" 
-          alt="App Preview 3" 
-        />
-      </div>
-    </section>
-
+    </div>
   </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer>
-    &copy; <span id="year"></span> Remembra. All rights reserved.
-  </footer>
+<!-- Hook -->
+<section class="py-24 bg-gray-100">
+  <div class="container mx-auto px-8">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-6" >
+        Redefining Memory Care with <span style="color: #c7b6ff;" class="font-bold">Remembra</span>
+      </h2>
+      <p class="text-lg text-gray-700 leading-relaxed mb-8 text-justify">
+        Over 55 million individuals globally experience memory loss from Alzheimer's, dementia, 
+        and related cognitive disorders—a number expected to reach 139 million by 2050. With 
+        someone diagnosed every <span class="font-semibold" style="color: #c7b6ff;">3.2 seconds</span>, 
+        traditional treatments fall short in addressing emotional and cognitive well-being.
+      </p>
+      <p class="text-lg text-gray-700 leading-relaxed text-justify">
+        Remembra combines the proven therapeutic benefits of music—clinically shown to delay cognitive decline and reduce depression—with advanced AI and wearable biosensor technology. Our personalized app learns from your emotional responses and preferences, curating an experience that reconnects you to cherished memories, enhances cognitive function, and uplifts your emotional health.
+      </p>
+      <a
+        href="#features"
+        class="mt-8 inline-block text-white px-6 py-2 rounded-full shadow-lg transition duration-300"
+        style="background-color: #c7b6ff;"
+      >
+        Explore How It Works
+      </a>
+    </div>
+  </div>
+</section>
 
-  <script>
-    // Insert current year in the footer
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+<!-- Explore Features Section -->
+<section class="py-20" x-data="{ feature: 'Personalization' }">
+  <div id="features" class="container mx-auto px-6 text-center">
+    <h2 class="text-4xl font-semibold mb-8">Explore Remembra's Features</h2>
+    
+    <!-- Buttons -->
+    <div class="flex flex-wrap justify-center gap-4 mb-12">
+      <button
+        @click="feature = 'Personalization'"
+        :class="feature === 'Personalization'
+          ? 'w-40 px-4 py-2 rounded-full text-white'
+          : 'w-40 px-4 py-2 rounded-full bg-gray-200 text-black'"
+        :style="feature === 'Personalization'
+          ? 'background-color: #c7b6ff;'
+          : ''"
+      >
+        Personalized AI
+      </button>
+
+      <button
+        @click="feature = 'User Friendly'"
+        :class="feature === 'User Friendly'
+          ? 'w-40 px-4 py-2 rounded-full text-white'
+          : 'w-40 px-4 py-2 rounded-full bg-gray-200 text-black'"
+        :style="feature === 'User Friendly'
+          ? 'background-color: #c7b6ff;'
+          : ''"
+      >
+        User Friendly
+      </button>
+
+      <button
+        @click="feature = 'Gameification'"
+        :class="feature === 'Gameification'
+          ? 'w-40 px-4 py-2 rounded-full text-white'
+          : 'w-40 px-4 py-2 rounded-full bg-gray-200 text-black'"
+        :style="feature === 'Gameification'
+          ? 'background-color: #c7b6ff;'
+          : ''"
+      >
+        Gameification
+      </button>
+
+      <button
+        @click="feature = 'Biosensors'"
+        :class="feature === 'Biosensors'
+          ? 'w-40 px-4 py-2 rounded-full text-white'
+          : 'w-40 px-4 py-2 rounded-full bg-gray-200 text-black'"
+        :style="feature === 'Biosensors'
+          ? 'background-color: #c7b6ff;'
+          : ''"
+      >
+        Biosensors
+      </button>
+    </div>
+
+    <!-- Dynamic Content -->
+    <div>
+      <template x-if="feature === 'Personalization'">
+        <div >
+          <h3 class="text-2xl font-bold">Tailored Just for You</h3>
+          <p class="text-gray-600 mb-8">
+            Get music recommendations designed around your personal memories and preferences.
+          </p>
+          <div class="grid grid-cols-3 gap-4 justify-items-center">
+            <img
+              src="images/Fine-Tune.png"
+              class="rounded shadow"
+              style="width:250px !important; height:auto !important;"
+            >
+            <img
+              src="images/Detailed Setup 2.png"
+              class="rounded shadow"
+              style="width:250px !important; height:auto !important;"
+            >
+            <img
+              src="images/Detailed Setup 5.png"
+              class="rounded shadow"
+              style="width:250px !important; height:auto !important;"
+            >
+          </div>
+        </div>
+      </template>
+      
+      <template x-if="feature === 'User Friendly'">
+        <div>
+          <h3 class="text-2xl font-bold">Intuitive and Simple</h3>
+          <p class="text-gray-600 mb-8">
+            Designed to be easily accessible by users of all ages.
+          </p>
+          <div class="grid grid-cols-3 gap-4 justify-items-center">
+            <img
+              src="images/Set Up Selection.png"
+              class="rounded shadow"
+              style="width:250px !important; height:auto !important;"
+            >
+            <img
+              src="images/Now Playing.png"
+              class="rounded shadow"
+              style="width:250px !important; height:auto !important;"
+            >
+            <img
+              src="images/My Songs.png"
+              class="rounded shadow"
+              style="width:250px !important; height:auto !important;"
+            >
+          </div>
+        </div>
+      </template>
+      
+      <template x-if="feature === 'Gameification'">
+        <div>
+          <h3 class="text-2xl font-bold">Test Your Memory</h3>
+          <p class="text-gray-600 mb-8">
+            Turn everyday music therapy into playful memory challenges.
+          </p>
+          <div class="grid grid-cols-3 gap-4 justify-items-center">
+            <img
+              src="images/Quiz.png"
+              class="rounded shadow"
+              style="width:250px !important; height:auto !important;"
+            >
+            <img
+              src="images/Quiz Wrong Chappel.png"
+              class="rounded shadow"
+              style="width:250px !important; height:auto !important;"
+            >
+            <img
+              src="images/Quiz Guessed.png"
+              class="rounded shadow"
+              style="width:250px !important; height:auto !important;"
+            >
+          </div>
+        </div>
+      </template>
+      
+      <template x-if="feature === 'Biosensors'">
+        <div>
+          <h3 class="text-2xl font-bold">Advanced Tracking</h3>
+          <p class="text-gray-600 mb-8">
+            Real-time heart rate and activity tracking provide live feedback, ensuring each music session is continually refined for comfort and effectiveness.
+          </p>
+          <div class="grid grid-cols-3 gap-4 justify-items-center">
+            <img
+              src="images/My Profile.png"
+              class="rounded shadow"
+              style="width:250px !important; height:auto !important;"
+            >
+            <img
+              src="images/Biosensor Alert.png"
+              class="rounded shadow"
+              style="width:250px !important; height:auto !important;"
+            >
+            <img
+              src="images/Quiz Guessed.png"
+              class="rounded shadow"
+              style="width:250px !important; height:auto !important;"
+            >
+          </div>
+        </div>
+      </template>
+    </div>
+  </div>
+</section>
+
+<!-- Research Information (reverted to gray background) -->
+<section class="py-20 bg-gray-100">
+  <div class="container mx-auto px-6 space-y-12">
+    <div class="max-w-4xl mx-auto">
+      <h3 class="text-3xl font-semibold">Backed by Research</h3>
+      <p class="text-gray-600 text-justify">
+        Clinical evidence indicates music therapy can improve mood, reduce anxiety, and slow short-term recall decline 
+        in those with cognitive impairment (Chu et al., 2014). By integrating AI-driven personalization and gamified 
+        memory tests, Remembra goes beyond traditional therapy—offering an innovative approach that’s both comforting and engaging.
+      </p>
+    </div>
+    <div class="max-w-4xl mx-auto">
+      <h3 class="text-3xl font-semibold text-right">User Friendly</h3>
+      <p class="text-gray-600 text-justify">
+        Remembra is designed to support both individuals and caregivers. For users with Alzheimer’s 
+        or memory-related conditions, caregivers can easily set up and manage playlists, track emotional responses, and 
+        adjust therapy settings to provide a seamless experience. The intuitive interface ensures therapy remains stress-free 
+        for both users and their loved ones.
+
+        For more independent users, Remembra offers an advanced setup with deeper customization options—allowing them to 
+        personalize their own music therapy experience while still benefiting from the app’s AI-driven recommendations.
+      </p>
+    </div>
+    <div class="max-w-4xl mx-auto">
+      <h3 class="text-3xl font-semibold">Info Block 3</h3>
+      <p class="text-gray-600 text-justify">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut fermentum quis urna in 
+        hendrerit. Phasellus eu nulla et est elementum vulputate. Nulla dignissim a turpis vitae auctor. Aliquam interdum mauris 
+        metus, sit amet tincidunt lacus tincidunt non. Suspendisse sodales in lectus non auctor. Fusce sollicitudin pharetra blandit. 
+        Nunc id imperdiet erat. Vivamus eget malesuada risus. Curabitur ullamcorper mauris est, in gravida massa rutrum eget. 
+        Aenean ornare tellus egestas metus volutpat imperdiet. In posuere ex quis massa iaculis porta. Nunc ultrices et mi nec 
+        bibendum. Quisque sodales, orci eget iaculis mattis, ante purus porta magna, ac pharetra erat lectus aliquet dolor. 
+        Mauris efficitur viverra dolor, vel dapibus tortor suscipit quis. Cras ornare rhoncus velit, non dapibus elit mattis 
+        sit amet. Ut pulvinar quam ac magna ornare elementum.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- YouTube Embed -->
+<section class="py-20">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="text-3xl font-semibold mb-6">See Remembra in Action</h2>
+    <div class="relative overflow-hidden" style="padding-top: 56.25%;">
+      <iframe 
+        class="absolute top-0 left-0 w-full h-full"
+        src="https://www.youtube.com/embed/huGd4efgdPA"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- Meet the Team -->
+<section class="py-20 bg-gray-100">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-semibold text-center mb-12">Meet the Team</h2>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+      <!-- Bryan Cardona -->
+      <div class="bg-white p-6 rounded-lg shadow text-center">
+        <img
+          src="https://placehold.co/200x200?text=Headshot"
+          alt="Bryan Cardona"
+          class="rounded-full mx-auto shadow-md mb-4"
+        />
+        <h3 class="font-bold">Bryan Cardona</h3>
+        <p class="text-sm text-gray-500 mb-2">Team Lead</p>
+        <p class="text-gray-600 mb-4">
+          Public Health Policy<br />
+          School of Public Health
+        </p>
+        <a
+          href="mailto:cardonb1@uci.edu"
+          class="inline-block text-white px-3 py-1 rounded"
+          style="background-color: #c7b6ff;"
+        >
+          Contact
+        </a>
+      </div>
+      <!-- Julia Chan -->
+      <div class="bg-white p-6 rounded-lg shadow text-center">
+        <img
+          src="https://placehold.co/200x200?text=Headshot"
+          alt="Julia Chan"
+          class="rounded-full mx-auto shadow-md mb-4"
+        />
+        <h3 class="font-bold">Julia Chan</h3>
+        <p class="text-sm text-gray-500 mb-2">UX Lead</p>
+        <p class="text-gray-600 mb-4">
+          Public Health Sciences<br />
+          School of Population & Public Health
+        </p>
+        <a
+          href="mailto:jmchan5@uci.edu"
+          class="inline-block text-white px-3 py-1 rounded"
+          style="background-color: #c7b6ff;"
+        >
+          Contact
+        </a>
+      </div>
+      <!-- Ethan Mandel -->
+      <div class="bg-white p-6 rounded-lg shadow text-center">
+        <img
+          src="https://placehold.co/200x200?text=Headshot"
+          alt="Ethan Mandel"
+          class="rounded-full mx-auto shadow-md mb-4"
+        />
+        <h3 class="font-bold">Ethan Mandel</h3>
+        <p class="text-sm text-gray-500 mb-2">Product Lead</p>
+        <p class="text-gray-600 mb-4">
+          Informatics<br />
+          School of Information and Computer Sciences
+        </p>
+        <a
+          href="mailto:mandele@uci.edu"
+          class="inline-block text-white px-3 py-1 rounded"
+          style="background-color: #c7b6ff;"
+        >
+          Contact
+        </a>
+      </div>
+      <!-- Diego Guzman -->
+      <div class="bg-white p-6 rounded-lg shadow text-center">
+        <img
+          src="https://placehold.co/200x200?text=Headshot"
+          alt="Diego Guzman"
+          class="rounded-full mx-auto shadow-md mb-4"
+        />
+        <h3 class="font-bold">Diego Guzman</h3>
+        <p class="text-sm text-gray-500 mb-2">CTO</p>
+        <p class="text-gray-600 mb-4">
+          Informatics<br />
+          School of Information and Computer Sciences
+        </p>
+        <a
+          href="mailto:guzmand7@uci.edu"
+          class="inline-block text-white px-3 py-1 rounded"
+          style="background-color: #c7b6ff;"
+        >
+          Contact
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- App Development Section -->
+<section class="py-24 bg-white">
+  <div class="text-center px-8">
+    <h2 class="text-4xl font-bold mb-6">
+      App Development
+    </h2>
+    <p class="text-lg text-gray-700 text-justify leading-relaxed max-w-3xl mx-auto mb-10">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut fermentum quis urna in hendrerit.
+      Phasellus eu nulla et est elementum vulputate. Nulla dignissim a turpis vitae auctor.
+      Aliquam interdum mauris metus, sit amet tincidunt lacus tincidunt non. Suspendisse sodales
+      in lectus non auctor. Fusce sollicitudin pharetra blandit. Nunc id imperdiet erat. Vivamus
+      eget malesuada risus. Curabitur ullamcorper mauris est, in gravida massa rutrum eget. Aenean
+      ornare tellus egestas metus volutpat imperdiet. In posuere ex quis massa iaculis porta. Nunc
+      ultrices et mi nec bibendum. Quisque sodales, orci eget iaculis mattis, ante purus porta magna,
+      ac pharetra erat lectus aliquet dolor. Mauris efficitur viverra dolor, vel dapibus tortor
+      suscipit quis. Cras ornare rhoncus velit, non dapibus elit mattis sit amet. Ut pulvinar quam
+      ac magna ornare elementum.
+    </p>
+    <!-- Carousel Container with Gradient Fade -->
+    <div class="relative mx-auto" style="width: 250px;">
+      <div class="overflow-hidden">
+        <div class="flex animate-scroll items-center space-x-12 w-max">
+          <!-- Icons -->
+          <img src="images/icons/ts.png" class="w-12 h-12 rounded-full shadow-sm flex-shrink-0" />
+          <img src="images/icons/js.png" class="w-12 h-12 rounded-full shadow-sm flex-shrink-0" />
+          <img src="images/icons/react.png" class="w-12 h-12 rounded-full shadow-sm flex-shrink-0" />
+          <img src="images/icons/python.png" class="w-12 h-12 rounded-full shadow-sm flex-shrink-0" />
+          <img src="images/icons/expo.png" class="w-12 h-12 rounded-full shadow-sm flex-shrink-0" />
+          <img src="images/icons/figma.png" class="w-12 h-12 rounded-full shadow-sm flex-shrink-0" />
+          <!-- Duplicate Icons looping -->
+          <img src="images/icons/ts.png" class="w-12 h-12 rounded-full shadow-sm flex-shrink-0" />
+          <img src="images/icons/js.png" class="w-12 h-12 rounded-full shadow-sm flex-shrink-0" />
+          <img src="images/icons/react.png" class="w-12 h-12 rounded-full shadow-sm flex-shrink-0" />
+          <img src="images/icons/python.png" class="w-12 h-12 rounded-full shadow-sm flex-shrink-0" />
+          <img src="images/icons/expo.png" class="w-12 h-12 rounded-full shadow-sm flex-shrink-0" />
+          <img src="images/icons/figma.png" class="w-12 h-12 rounded-full shadow-sm flex-shrink-0" />
+          <!-- Additional Icons for looping -->
+          <img src="images/icons/ts.png" class="w-12 h-12 rounded-full shadow-sm flex-shrink-0" />
+          <img src="images/icons/js.png" class="w-12 h-12 rounded-full shadow-sm flex-shrink-0" />
+          <img src="images/icons/react.png" class="w-12 h-12 rounded-full shadow-sm flex-shrink-0" />
+          <img src="images/icons/python.png" class="w-12 h-12 rounded-full shadow-sm flex-shrink-0" />
+          <img src="images/icons/expo.png" class="w-12 h-12 rounded-full shadow-sm flex-shrink-0" />
+          <img src="images/icons/figma.png" class="w-12 h-12 rounded-full shadow-sm flex-shrink-0" />
+        </div>
+      </div>
+      <!-- Gradient fades -->
+      <div 
+        class="absolute inset-y-0 left-0 w-3"
+        style="background: linear-gradient(to right, white, transparent);"
+      ></div>
+      <div 
+        class="absolute inset-y-0 right-0 w-3"
+        style="background: linear-gradient(to left, white, transparent);"
+      ></div>
+    </div>
+  </div>
+  <!-- Carousel Animation CSS -->
+  <style>
+    @keyframes scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-576px); }
+    }
+    .animate-scroll {
+      animation: scroll 15s linear infinite;
+    }
+  </style>
+</section>
+
+<!-- Footer -->
+<footer class="py-6 bg-gray-100 text-center">
+  <button 
+    class="px-4 py-2 text-white rounded"
+    style="background-color: #c7b6ff;"
+  >
+    Contact Us
+  </button>
+</footer>
+
 </body>
 </html>
